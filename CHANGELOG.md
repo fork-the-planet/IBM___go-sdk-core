@@ -1,3 +1,10 @@
+## [5.23.1](https://github.com/IBM/go-sdk-core/compare/v5.23.0...v5.23.1) (2026-07-16)
+
+
+### Bug Fixes
+
+* fix disabled golangci-lint rules ([#278](https://github.com/IBM/go-sdk-core/issues/278)) ([4bcd6f6](https://github.com/IBM/go-sdk-core/commit/4bcd6f6cb95415190945c5574a7edc95b9f7a4b4))
+
 # [5.23.0](https://github.com/IBM/go-sdk-core/compare/v5.22.1...v5.23.0) (2026-07-16)
 
 
