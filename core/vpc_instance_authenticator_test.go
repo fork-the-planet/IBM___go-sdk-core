@@ -273,7 +273,7 @@ func startMockVPCServer(t *testing.T, scenario string) *httptest.Server {
 	// In our handler function below, we keep a count of the number of invocations of
 	// the "create_iam_token" operation so we can simulate the use of different
 	// IAM access tokens.
-	var iamTokenCount int = 0
+	var iamTokenCount = 0
 
 	// For calls to the 'create_iam_token' operation we expect the Authorization header
 	// to contain the instance identity token.
@@ -333,7 +333,7 @@ func startMockVPCServer(t *testing.T, scenario string) *httptest.Server {
 
 				res.WriteHeader(http.StatusOK)
 
-				buf, err := json.Marshal(response)
+				buf, err := json.Marshal(response) // #nosec G117
 				assert.Nil(t, err)
 				fmt.Fprintf(res, "%s", string(buf))
 			}
@@ -450,7 +450,7 @@ func startMockVPCServer(t *testing.T, scenario string) *httptest.Server {
 					ExpiresIn:   Int64Ptr(3600),
 				}
 
-				buf, err := json.Marshal(response)
+				buf, err := json.Marshal(response) // #nosec G117
 				assert.Nil(t, err)
 				fmt.Fprintf(res, "%s", string(buf))
 			}
@@ -459,7 +459,7 @@ func startMockVPCServer(t *testing.T, scenario string) *httptest.Server {
 			// Internal testcase error - should never get here :)
 			res.WriteHeader(http.StatusNotFound)
 			msg := "Unknown operation path: " + operationPath
-			fmt.Fprintf(res, "%s", msg)
+			fmt.Fprintf(res, "%s", msg) // #nosec G705
 			assert.Fail(t, msg)
 		}
 	}))
